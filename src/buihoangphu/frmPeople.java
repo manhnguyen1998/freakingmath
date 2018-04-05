@@ -52,7 +52,7 @@ public class frmPeople extends javax.swing.JFrame {
                 	System.out.println("Hello "+a);
                 	int score=rs.getInt(3);
                 	Detail dt=new Detail(a,c,score);
-                	initGame(dt);
+                	initMenu(dt);
                 	break;
                 }
                 System.out.println("username or password is incorrect");
@@ -220,13 +220,19 @@ public class frmPeople extends javax.swing.JFrame {
   private void btnDkActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
     }
-  public void initGame(Detail newDetail) {
-	  frm game= new frm(newDetail);
-	  game.setVisible(true);
-	  game.pack();
-	  game.setLocationRelativeTo(null);
-	  game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  public void initMenu(Detail newDetail) {
+	  NewJFrame newframe = new NewJFrame();
+	  newframe.setVisible(true);
+	  newframe.pack();
+	  newframe.setLocationRelativeTo(null);
+	  newframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	  this.dispose();
+//	  frm game= new frm(newDetail);
+//	  game.setVisible(true);
+//	  game.pack();
+//	  game.setLocationRelativeTo(null);
+//	  game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	  this.dispose();
   }
 
     /**
