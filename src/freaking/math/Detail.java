@@ -24,7 +24,7 @@ public class Detail {
 	public int getScore() {
 		return score;
 	}
-	public void setScore() {
+	public void setScore(int score) {
 		this.score=score;
 	}
 }

@@ -11,7 +11,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
+
+import buihoangphu.NewJFrame;
 
 
 public class frm extends javax.swing.JFrame {
@@ -22,9 +27,23 @@ public class frm extends javax.swing.JFrame {
  public int highScore,highScore2; // bien highScore2: check xem highScore da bi thay doi chua
  boolean gameover=false;
 static Detail dt;
+public void initMenu(Detail newDetail) {
+	  NewJFrame newframe = new NewJFrame(newDetail);
+	  newframe.setVisible(true);
+	  newframe.pack();
+	  newframe.setLocationRelativeTo(null);
+	  newframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	  this.dispose();
+//	  frm game= new frm(newDetail);
+//	  game.setVisible(true);
+//	  game.pack();
+//	  game.setLocationRelativeTo(null);
+//	  game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	  this.dispose();
+}
     public frm(Detail newDetail) {
     	dt=newDetail;
-        initComponents(newDetail);
+        initComponents(dt);
          setResizable(false);
       
     }
@@ -106,7 +125,16 @@ static Detail dt;
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+            	initMenu(newDetail);
+//                jFrame1.setVisible(false);
+            }
+        });
+        
+        
 
         jPanel1.setBackground(new java.awt.Color(204, 102, 0));
 
@@ -235,7 +263,7 @@ static Detail dt;
         {
             diem++;
             if(c==a+b && times!=0){
-            load();  
+            load(dt);  
             times=100;
             time.start();
         }else
@@ -253,7 +281,7 @@ static Detail dt;
         jButton3.setVisible(false);
         gameover = true;
         diem=0;     
-        load();
+        load(dt);
         times=100;
         time=new Timer(25, new loadTime());
       
@@ -265,7 +293,7 @@ static Detail dt;
         if(gameover){
          if(c!=a+b && times!=0){
              diem++;
-             load();
+             load(dt);
              times=100;
              time.start();
          }else
@@ -275,7 +303,7 @@ static Detail dt;
          }}
 		 
     }//GEN-LAST:event_saiActionPerformed
-public void load(){
+public void load(Detail newDetail){
     /*
     
    */
@@ -297,7 +325,7 @@ public void load(){
    // add();
     jLabel7.setText(a+"+"+b+"="+c);
    
-  
+  newDetail.setScore(highScore);
 }
 
    

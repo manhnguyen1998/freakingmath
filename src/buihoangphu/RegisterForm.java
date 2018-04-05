@@ -30,7 +30,7 @@ public class RegisterForm extends javax.swing.JFrame {
 		  game.setVisible(true);
 		  game.pack();
 		  game.setLocationRelativeTo(null);
-		  game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		  game.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		  this.dispose();
 	  }
     public RegisterForm() {

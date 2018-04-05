@@ -221,7 +221,7 @@ public class frmPeople extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
   public void initMenu(Detail newDetail) {
-	  NewJFrame newframe = new NewJFrame();
+	  NewJFrame newframe = new NewJFrame(newDetail);
 	  newframe.setVisible(true);
 	  newframe.pack();
 	  newframe.setLocationRelativeTo(null);
